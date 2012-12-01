@@ -9,16 +9,31 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+SIDEBAR_URLS = (
+    '/articles/',
+    '/survey-reports/',
+    '/case-studies/',
+    '/contributor/',
+)
+
 ADMIN_PANEL_URL = 'admin-panel'
 ADMIN_LOGIN_URL = 'admin-login'
+
+TWITTER_POSTING_ON = True
+LINKEDIN_POSTING_ON = True
+FACEBOOK_POSTING_ON = True
+PLAXO_POSTING_ON = True
 
 OAUTH_TOKEN = '801628326-PrjyrV4j0Tw8I2puYc8nyUOD6iM1WV7yMdEkd6Nn'
 OAUTH_SECRET = 'jXIegVI9wJLDLmP02MO7hK9Z33I7m5KM1j1J1f1Zrc'
 TWITTER_TOKEN = 'Y48o4yqkm6zKSIBg72Fw'
 TWITTER_SECRET = 'hOlcAri9RyqvI9gCZo380wLLoy0lkWWN4Py2q4LQTY4'
-
-LINKEDIN_CONSUMER_KEY = None
-LINKEDIN_CONSUMER_SECRET = None
+FACEBOOK_ID = '170935919718208'
+FACEBOOK_SECRET = '457115335bfcc9efbabd49735f77e2c7'
+LINKEDIN_API_KEY = 'i8o78osmcid9'
+LINKEDIN_SECRET = '9pk2Ynl4A3HlpAfa'
+LINKEDIN_OAUTH_TOKEN = '92c8a025-0114-4203-81cb-7554c36af187'
+LINKEDIN_OAUTH_SECRET = '79ada979-8ced-4aca-9b3b-e7b7ce97b7a2'
 
 DATABASES = {
     'default': {
@@ -97,6 +112,18 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+
+    'myproject.context_processors.assign_sidebar',
 )
 
 MIDDLEWARE_CLASSES = (

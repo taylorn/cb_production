@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from myproject.social import updateTwitterStatus
+from myproject.social import updateAllMedia
 
 class ArticleDetailView(DetailView):
     
@@ -44,15 +44,11 @@ class ArticleCreateView(CreateView):
         return HttpResponseRedirect(reverse_lazy('article_list'))
 
     def form_valid(self, form):
-        status = form['title'].value()
-        if form['link']: status += '\n%s' % form['link'].value()
-        updateTwitterStatus(status)
+        updateAllMedia(form)
         return super(ArticleCreateView, self).form_valid(form)
 
     def form_valid(self, form):
-        status = form['title'].value()
-        if form['link']: status += '\n%s' % form['link'].value()
-        updateTwitterStatus(status)
+        updateAllMedia(form)
         return super(ArticleCreateView, self).form_valid(form)
     
 class ArticleUpdateView(UpdateView):

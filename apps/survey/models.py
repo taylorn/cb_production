@@ -30,7 +30,7 @@ class Survey(models.Model):
     
     def get_update_url(self):
         return reverse('survey_update', kwargs={'title': self.title.replace(' ', '-') })
-    
+
     def get_delete_url(self):
         return reverse('survey_delete', kwargs={'title': self.title.replace(' ', '-') })
     

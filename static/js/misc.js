@@ -16,4 +16,18 @@ function appendFramedPage(id, link, user_is_staff) {
 		}
 	}
 }
+
+function adjustForIE()
+{
+    return;
+    var whitespace = document.getElementById('whitespace');
+    if (navigator.appName == 'Microsoft Internet Explorer')
+    {
+     	whitespace.style.width="100px";
+    }
+    else
+    {
+     	whitespace.style.width="200px";
+    }
+}
 //-->
